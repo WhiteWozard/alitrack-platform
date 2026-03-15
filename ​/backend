@@ -1,0 +1,20 @@
+const express = require('express');
+const { PrismaClient } = require('@prisma/client');
+const cors = require('cors');
+
+const prisma = new PrismaClient();
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// Health Check for Docker/Cloud
+app.get('/health', (req, res) => res.send('AliTrack API is Online 🚀'));
+
+// Get Business Data
+app.get('/api/business/:slug', async (req, res) => {
+  const business = await prisma.business.findUnique({ where: { slug: req.params.slug } });
+  res.json(business);
+});
+
+app.listen(8080, () => console.log('Backend running on port 8080'));
