@@ -1,0 +1,14 @@
+export default function HomePage() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-blue-50">
+      <h1 className="text-4xl font-bold text-blue-900">AliTrack</h1>
+      <p className="text-gray-600 mt-2">Multi-Business Management System</p>
+      <div className="mt-8 p-6 bg-white shadow-xl rounded-2xl border-t-4 border-blue-600">
+        <h2 className="text-xl font-bold">Welcome, Super Admin</h2>
+        <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg">
+          Launch Dashboard
+        </button>
+      </div>
+    </div>
+  );
+}
